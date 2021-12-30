@@ -28,7 +28,7 @@ input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def score(Score: number, Winner: str):
     global 석진이
-    if Score >= 1:
+    if Score >= 5:
         basic.show_string("GG")
         basic.show_string("Winner is")
         basic.show_string(Winner)
@@ -37,12 +37,12 @@ def score(Score: number, Winner: str):
     else:
         석진이 = "Non"
         basic.clear_screen()
+Player_2 = 0
+Player_1 = 0
 Re = 0
 석진이 = ""
 # 시작
 석진이 = "Non"
-Player_1 = 0
-Player_2 = 0
 Re = 0
 # 석진이
 # Non
@@ -52,7 +52,7 @@ Re = 0
 # 계속 반복
 
 def on_forever():
-    global 석진이, Player_1, Player_2
+    global 석진이, Player_1, Player_2, Re
     while Re == 0:
         if 석진이 == "Non":
             basic.pause(randint(1000, 5000))
@@ -76,8 +76,10 @@ def on_forever():
                 basic.clear_screen()
                 basic.pause(10)
         if 석진이 == "Finish":
-            basic.show_string("Try again=A else=B")
+            basic.show_string("Try again=A else=B") # 계속 눌러야 함 
             if input.button_is_pressed(Button.B):
                 basic.show_icon(IconNames.SKULL)
+                Re = 1
                 break
 basic.forever(on_forever)
+

@@ -27,7 +27,7 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
 })
 function score(Score: number, Winner: string) {
     
-    if (Score >= 1) {
+    if (Score >= 5) {
         basic.showString("GG")
         basic.showString("Winner is")
         basic.showString(Winner)
@@ -40,12 +40,12 @@ function score(Score: number, Winner: string) {
     
 }
 
+let Player_2 = 0
+let Player_1 = 0
 let Re = 0
 let 석진이 = ""
 //  시작
 석진이 = "Non"
-let Player_1 = 0
-let Player_2 = 0
 Re = 0
 //  석진이
 //  Non
@@ -87,8 +87,10 @@ basic.forever(function on_forever() {
         
         if (석진이 == "Finish") {
             basic.showString("Try again=A else=B")
+            //  계속 눌러야 함 
             if (input.buttonIsPressed(Button.B)) {
                 basic.showIcon(IconNames.Skull)
+                Re = 1
                 break
             }
             
